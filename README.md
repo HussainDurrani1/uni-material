@@ -6,11 +6,11 @@ This repository contains study material for my **BSc Computer Science degree**, 
 
 ### Semester 3
 This folder contains the following subjects:
-- COAL
-- Entrepreneurship
-- Multi Variate Calculus
-- OOP
-- PP
+- Computer Organization & Assembly Language (COAL)
+- Introduction to Entrepreneurship
+- MultiVariate Calculus
+- Object Oriented Programming (OOP)
+- Professional Practices
 - Probability & Statistics
 
 ---
