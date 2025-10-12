@@ -23,7 +23,7 @@ mov dl, 13
 mov ah, 02h
 int 21h
 
-print 'Your Cahracter: '
+print 'Your Character: '
 
 mov dl, bl
 
