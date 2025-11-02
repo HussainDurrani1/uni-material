@@ -1,4 +1,4 @@
-w; ===== EMU8086 Boilerplate =====
+dw; ===== EMU8086 Boilerplate =====
 
 .model small
 .stack 100h
