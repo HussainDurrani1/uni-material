@@ -13,6 +13,16 @@ This folder contains the following subjects:
 - Professional Practices
 - Probability & Statistics
 
+### Semester 4
+This folder contains the following subjects:
+- Data Structures & Algorithms (DSA)
+- Data Base Management System (DBMS)
+- Linear Algebra
+- Software Engineering
+- Economics
+- Islamiyat
+
+
 ---
 
 > **Note:** This repository will be continuously updated as I add materials for future semesters.
