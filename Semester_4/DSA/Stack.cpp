@@ -36,7 +36,7 @@ int main() {
     if(s.isEmpty()) cout<<"Your stack is empty"<<endl;
     else {
         int value=s.pop();
-        cout<< " popped value is : "<<value<<endl;
+        cout<< " popped value is : "<< value << endl;
     }
     if(!s.isEmpty()) cout<<s.peek()<<endl;
 
