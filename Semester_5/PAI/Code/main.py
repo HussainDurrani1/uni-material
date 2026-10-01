@@ -4,6 +4,8 @@
 # it will be changed for the other variable as well.
 # But, that is not the case with immutable variables (str, int, float, frozenSet, tuple)
 
+# Study about Iterators, generator, containers, etc. in cpp stl. 
+
 print("Hello, Hussain Durrani.")
 
 x = [1, 2, 3]
