@@ -41,3 +41,10 @@ print(combined)
 for name, sq, res in zip(squares, names, results):
     print(f'Name: {name} | Square: {sq} | Result: {res}.')
 
+# --------------------------------------------------
+
+values_db = {
+    sq: {'name': name, 'result': res}
+    for name, sq, res in zip(names, squares, results)
+}
+print(values_db)
