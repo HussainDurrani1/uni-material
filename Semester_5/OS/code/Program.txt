@@ -1,0 +1,14 @@
+#include <iostream>
+int a=5;
+int b=10;
+
+int main() {
+    // Write C++ code here
+    
+    int c;
+    c=a+b;
+    std::cout << c;
+    std::cout << "\nHello world!";
+
+    return 0;
+}

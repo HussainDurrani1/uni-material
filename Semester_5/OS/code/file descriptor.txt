@@ -1,0 +1,82 @@
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <sys/wait.h>
+
+int main(int argc, char const *argv[])
+{
+	char array[100];
+	int n = read(0,array,100);
+
+	write(1,array,n);
+	
+	return 0;
+}
+give 100 rather the 5 size in write function\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <sys/wait.h>
+
+int main(int argc, char const *argv[])
+{
+	char array[100];
+	int n = read(0,array,100);
+
+	write(1,array,100);
+	
+	return 0;
+}
+
+
+
+at the descript 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+
+
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <sys/wait.h>
+
+int main(int argc, char const *argv[])
+{
+	char array[100];
+	int n = read(0,array,100);
+
+	write(2,array,100);
+	
+	return 0;
+}
+
+with 2\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <sys/wait.h>
+
+int main(int argc, char const *argv[])
+{
+	
+
+	write(1,"hello",5);
+	write(2,"error",5);
+	return 0;
+}
