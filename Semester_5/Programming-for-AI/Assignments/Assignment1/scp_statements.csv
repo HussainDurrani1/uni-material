@@ -1,0 +1,8 @@
+Unnamed: 0,code,subclass,class,description,diagnostic,subclass_1,diagnostic_class,diagnostic_subclass,Statement Category
+AMI,AMI,,,anterior myocardial infarction,1.0,0,MI,,Myocardial Infarction
+IMI,IMI,,,inferior myocardial infarction,1.0,0,MI,,Myocardial Infarction
+LMI,LMI,,,lateral myocardial infarction,1.0,0,MI,,Myocardial Infarction
+ASMI,ASMI,,,anteroseptal myocardial infarction,1.0,0,MI,,Myocardial Infarction
+NORM,NORM,,,normal ECG,0.0,0,NORM,,Normality
+SR,SR,,,sinus rhythm,0.0,0,RHYTHM,,Rhythm
+STTC,STTC,,,ST/T change,0.0,0,STTC,,ST/T Changes

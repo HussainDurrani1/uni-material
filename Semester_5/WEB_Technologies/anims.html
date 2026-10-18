@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CSS Transforms, Transitions & Animations — Slides</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent:#16a34a;--muted:#94a3b8;--glass:rgba(255,255,255,0.03);}
+    html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#071024 0%, #0b1220 100%);color:#e6eef8}
+    .wrap{height:100%;display:flex;align-items:center;justify-content:center;padding:2rem}
+    .slides{width:1000px;height:640px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:12px;box-shadow:0 12px 40px rgba(2,6,23,0.7);overflow:hidden;display:grid;grid-template-rows:60px 1fr 60px}
+    header{display:flex;align-items:center;gap:12px;padding:0 20px;border-bottom:1px solid rgba(255,255,255,0.03)}
+    header h1{font-size:18px;margin:0}
+    main{padding:28px;display:flex;gap:24px}
+    .content{flex:1;overflow:auto}
+    .demo{width:420px;background:var(--card);border-radius:10px;padding:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+    .box{width:160px;height:160px;margin:24px auto;border-radius:12px;background:linear-gradient(135deg,var(--accent),#2dd4bf);display:flex;align-items:center;justify-content:center;color:#042018;font-weight:700}
+    .controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    button{background:var(--glass);border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer}
+    footer{display:flex;align-items:center;justify-content:space-between;padding:0 18px;border-top:1px solid rgba(255,255,255,0.03)}
+    .nav{display:flex;gap:8px}
+    .slide-index{font-size:13px;color:var(--muted)}
+    pre{background:#071327;color:#cfe8ff;padding:12px;border-radius:8px;overflow:auto;font-size:13px}
+    .explain{font-size:14px;color:#d5e7ff;line-height:1.5}
+    #tgt{transition:all 0.4s ease; transform-origin:center center}
+    .persp{perspective:900px}
+    .pulse{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#ffb86b,#ff6b6b);color:#2a0f05;font-weight:800}
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="slides" id="slides">
+      <header>
+        <h1>CSS Transforms · Transitions · Animations — Interactive Slides</h1>
+        <div style="flex:1"></div>
+        <div class="slide-index" id="titleNote">Use ← → or Prev/Next</div>
+      </header>
+
+      <main>
+        <div class="content" id="content"></div>
+        <aside class="demo" id="demo"></aside>
+      </main>
+
+      <footer>
+        <div class="nav">
+          <button id="prev">Prev</button>
+          <button id="next">Next</button>
+        </div>
+        <div class="slide-index" id="pos">1 / 4</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const slides = [
+      {
+        title: '2D Transforms',
+        explain: `2D transforms let you move, rotate, scale and skew elements on the 2‑dimensional plane without affecting document flow.`,
+        code: `<div class='box' style='transform: translate(60px,-20px);'></div>\n.box{ transform: rotate(25deg); }`,
+        demo: function(container){
+          container.innerHTML = `
+            <div style='text-align:center'>
+              <div class='box' id='tgt'>BOX</div>
+              <div class='controls'>
+                <button onclick="apply('translate(60px, -20px)')">translate</button>
+                <button onclick="apply('rotate(25deg)')">rotate</button>
+                <button onclick="apply('scale(1.4)')">scale</button>
+                <button onclick="apply('skew(20deg, 5deg)')">skew</button>
+                <button onclick="apply('none')">reset</button>
+              </div>
+            </div>`;
+        }
+      },
+      {
+        title: '3D Transforms',
+        explain: `3D transforms allow elements to be rotated in 3D space using rotateX(), rotateY(), and rotateZ().`,
+        code: `.persp{ perspective:900px; }\n.box{ transform: rotateX(35deg) rotateY(20deg); }`,
+        demo: function(container){
+          container.innerHTML = `<div class='persp'><div class='box' id='tgt'>BOX</div></div>`;
+        }
+      },
+      {
+        title: 'CSS Transitions',
+        explain: `Transitions animate changes between states when CSS properties change.`,
+        code: `.box{ transition: transform 400ms ease; }\n.box:hover{ transform: translateY(-20px) scale(1.05); }`,
+        demo: function(container){
+          container.innerHTML = `<div class='box' id='tgt'>HOVER</div>`;
+          const tgt = document.getElementById('tgt');
+          tgt.addEventListener('mouseenter',()=>tgt.style.transform='translateY(-20px) scale(1.05)');
+          tgt.addEventListener('mouseleave',()=>tgt.style.transform='none');
+        }
+      },
+      {
+        title: 'CSS Animations',
+        explain: `CSS Animations use keyframes to define smooth transitions between styles over time.`,
+        code: `@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}\n.pulse{ animation: floaty 1.8s ease-in-out infinite; }`,
+        demo: function(container){
+          container.innerHTML = `<div class='pulse' id='animTgt'>✦</div>`;
+          playAnim('floaty 1.8s ease-in-out infinite');
+        }
+      }
+    ];
+
+    const content = document.getElementById('content');
+    const demo = document.getElementById('demo');
+    const pos = document.getElementById('pos');
+    const titleNote = document.getElementById('titleNote');
+    let idx = 0;
+
+    function render(){
+      const s = slides[idx];
+      content.innerHTML = `<h2>${s.title}</h2><p class='explain'>${s.explain}</p><pre><code>${s.code}</code></pre>`;
+      demo.innerHTML = '';
+      s.demo(demo);
+      pos.textContent = `${idx+1} / ${slides.length}`;
+      titleNote.textContent = s.title;
+    }
+
+    function apply(t){const tgt=document.getElementById('tgt');if(tgt)tgt.style.transform=t;}
+    function playAnim(spec){const a=document.getElementById('animTgt');if(a)a.style.animation=spec;}
+
+    document.getElementById('prev').addEventListener('click',()=>{idx=(idx-1+slides.length)%slides.length;render();});
+    document.getElementById('next').addEventListener('click',()=>{idx=(idx+1)%slides.length;render();});
+    window.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){idx=Math.min(idx+1,slides.length-1);render();}if(e.key==='ArrowLeft'){idx=Math.max(idx-1,0);render();}});
+
+    render();
+  </script>
+</body>
+</html>
