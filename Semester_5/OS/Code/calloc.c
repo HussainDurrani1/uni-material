@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
  
-int main()
-{
+int main() {
  
     // This pointer will hold the
     // base address of the block created
@@ -10,8 +9,9 @@ int main()
     int n, i;
  
     // Get the number of elements for the array
-    n = 5;
-    printf("Enter number of elements: %d\n", n);
+    n = 0;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
  
     // Dynamically allocate memory using calloc()
     ptr = (int*)calloc(n, sizeof(int));
@@ -23,7 +23,6 @@ int main()
         exit(0);
     }
     else {
- 
         // Memory has been successfully allocated
         printf("Memory successfully allocated using calloc.\n");
  
@@ -37,6 +36,7 @@ int main()
         for (i = 0; i < n; ++i) {
             printf("%d, ", ptr[i]);
         }
+        printf("\n");
     }
  
     return 0;

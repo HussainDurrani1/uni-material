@@ -1,3 +1,0 @@
-7 command line argument
-8` exec 
-8 file descriptor

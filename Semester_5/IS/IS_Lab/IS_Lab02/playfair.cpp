@@ -1,128 +1,110 @@
 #include <iostream>
 using namespace std;
 
-char up(char c) {
-    if (c >= 'a' && c <= 'z')
-        return c - 32;
-    return c;
-}
+char grid[5][5];
 
-void buildMatrix(string key, char m[5][5]) {
-    int used[26] = {0};
-    used['J' - 'A'] = 1;
-    string s = "";
-    for (int i = 0; i < key.length(); i++) {
-        char c = up(key[i]);
-        if (c == 'J')
-            c = 'I';
-        if (c >= 'A' && c <= 'Z' && used[c - 'A'] == 0) {
-            used[c - 'A'] = 1;
-            s = s + c;
+string clean(string s) {
+    string r = "";
+    for (char c : s) {
+        if (c >= 'a' && c <= 'z') {
+            c = c - 'a' + 'A';
+        }
+        
+        if (c >= 'A' && c <= 'Z') {
+            if (c == 'J') c = 'I';
+            r += c;
         }
     }
-    for (char c = 'A'; c <= 'Z'; c++)
-        if (used[c - 'A'] == 0)
-            s = s + c;
-    int k = 0;
-    for (int i = 0; i < 5; i++)
-        for (int j = 0; j < 5; j++)
-            m[i][j] = s[k++];
+    return r;
 }
 
-void findPos(char m[5][5], char c, int &r, int &col) {
-    if (c == 'J')
-        c = 'I';
+void makeGrid(string key) {
+    string letters = clean(key) + "ABCDEFGHIKLMNOPQRSTUVWXYZ";
+    string used = "";
+
+    for (char c : letters) {
+        if (used.find(c) == string::npos) used += c;
+    }
+
+    for (int i = 0; i < 25; i++) { grid[i / 5][i % 5] = used[i]; }
+}
+
+void position(char c, int &r, int &col) {
     for (int i = 0; i < 5; i++)
         for (int j = 0; j < 5; j++)
-            if (m[i][j] == c) {
+            if (grid[i][j] == c) {
                 r = i;
                 col = j;
                 return;
             }
 }
 
-string prep(string t) {
-    string r = "";
-    for (int i = 0; i < t.length(); i++) {
-        char c = up(t[i]);
-        if (c == 'J')
-            c = 'I';
-        if (c >= 'A' && c <= 'Z')
-            r = r + c;
-    }
-    return r;
-}
+string prepare(string text) {
+    text = clean(text);
+    string result = "";
 
-string playfairEnc(string t, char m[5][5]) {
-    string p = prep(t);
-    string r = "";
-    int i = 0;
-    while (i < p.length()) {
-        char a = p[i];
+    for (int i = 0; i < static_cast<int>(text.length());) {
+        char a = text[i];
         char b = 'X';
-        if (i + 1 < p.length())
-            b = p[i + 1];
-        if (a == b) {
-            b = 'X';
-            i = i + 1;
-        } else {
-            i = i + 2;
+
+        if (i + 1 < static_cast<int>(text.length()) && text[i + 1] != a) {
+            b = text[i + 1];
+            i += 2;
         }
-        int r1, c1, r2, c2;
-        findPos(m, a, r1, c1);
-        findPos(m, b, r2, c2);
-        if (r1 == r2) {
-            r = r + m[r1][(c1 + 1) % 5];
-            r = r + m[r2][(c2 + 1) % 5];
-        } else if (c1 == c2) {
-            r = r + m[(r1 + 1) % 5][c1];
-            r = r + m[(r2 + 1) % 5][c2];
-        } else {
-            r = r + m[r1][c2];
-            r = r + m[r2][c1];
+        else {
+            b = (a == 'X') ? 'Q' : 'X';
+            i++;
         }
+
+        result += a;
+        result += b;
     }
-    return r;
+    return result;
 }
 
-string playfairDec(string t, char m[5][5]) {
-    string r = "";
-    for (int i = 0; i < t.length(); i = i + 2) {
-        char a = t[i];
-        char b = t[i + 1];
-        int r1, c1, r2, c2;
-        findPos(m, a, r1, c1);
-        findPos(m, b, r2, c2);
-        if (r1 == r2) {
-            r = r + m[r1][(c1 + 4) % 5];
-            r = r + m[r2][(c2 + 4) % 5];
-        } else if (c1 == c2) {
-            r = r + m[(r1 + 4) % 5][c1];
-            r = r + m[(r2 + 4) % 5][c2];
-        } else {
-            r = r + m[r1][c2];
-            r = r + m[r2][c1];
-        }
-    }
-    return r;
-}
+string convert(string text, int shift) {
+    string result = "";
 
-void printMatrix(char m[5][5]) {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++)
-            cout << m[i][j] << " ";
-        cout << endl;
+    for (int i = 0; i < static_cast<int>(text.length()); i += 2) {
+        int r1, c1, r2, c2;
+
+        position(text[i], r1, c1);
+        position(text[i + 1], r2, c2);
+
+        if (r1 == r2) {
+            c1 = (c1 + shift + 5) % 5;
+            c2 = (c2 + shift + 5) % 5;
+        }
+        else if (c1 == c2) {
+            r1 = (r1 + shift + 5) % 5;
+            r2 = (r2 + shift + 5) % 5;
+        }
+        else {
+            int temp = c1;
+            c1 = c2;
+            c2 = temp;
+        }
+
+        result += grid[r1][c1];
+        result += grid[r2][c2];
     }
+    return result;
 }
 
 int main() {
-    char m[5][5];
-    buildMatrix("MONARCHY", m);
-    printMatrix(m);
-    string t = "CRYPTOGRAPHY";
-    string c = playfairEnc(t, m);
-    cout << "Plaintext:  " << t << endl;
-    cout << "Encrypted:  " << c << endl;
-    cout << "Decrypted:  " << playfairDec(c, m) << endl;
+    string text, key;
+
+    cout << "Enter text: ";
+    getline(cin, text);
+    cout << "Enter keyword: ";
+    cin >> key;
+
+    makeGrid(key);
+
+    string cipher = convert(prepare(text), 1);
+
+    cout << "Encrypted: " << cipher << endl;
+    cout << "Decrypted: " << convert(cipher, -1);
+
     return 0;
 }

@@ -1,0 +1,153 @@
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <sys/wait.h>
+
+// int main(int argc, char const *argv[]) {
+// 	int  fd[2];
+// 	pipe (fd);
+	
+// 	if (fork() == 0) { //child
+//     char array[10];
+//     read(fd[0],array,10);
+//     printf("%s",array);
+// 	}
+// 	else { //parent
+// 	    write(fd[1],"Helosdfffoo", 60);
+// 	    wait(NULL);
+// 	}
+// }
+/////////////////////////////
+
+// #include <unistd.h>
+
+// int main() {
+//   int pfd[2], fv;
+//   pipe(pfd);
+//   fv = fork();
+//   if (fv)
+//   {
+//     close(pfd[0]);
+//     dup2(pfd[1],STDOUT_FILENO);
+//     execlp("cat","cat",NULL);
+//   }
+//   else {
+//     close(pfd[1]);
+//     dup2(pfd[0],STDIN_FILENO);
+//     execlp("tr","tr"," ","x",NULL);
+//   }
+
+//   return 0;
+// }
+
+////////////////////
+
+// #include <stdio.h>
+// #include <unistd.h>
+// #include <wait.h>
+
+// int main(int argc, char const *argv[]) {
+//   int fd[2];
+//   pipe(fd);
+  
+//   if (fork() == 0) {
+//     char array [10];
+//     read(fd[0], array, 10); 
+//     printf("%s",array);
+//   }
+    
+//     else {
+//       write(fd[1],"Hello", 60);
+//       wait (NULL);
+//     }
+// }
+
+
+////////////////////////////////////////
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <unistd.h>
+// #include <sys/types.h>
+// #include <sys/wait.h>
+// int main(void) {
+//   int pipefds[2];
+//   char *pin;
+//   char buffer[5];
+ 
+//   if(pipe(pipefds) == -1) {
+//     perror("pipe");
+//     exit(EXIT_FAILURE);
+//   }
+ 
+//   pid_t pid = fork();
+ 
+//   if(pid == 0) { // in child process
+//     pin = "4821\0"; // PIN to send
+//     close(pipefds[0]); // close read fd
+//     write(pipefds[1], pin, 5); // write PIN to pipe
+ 
+//     printf("Generating PIN in child and sending to parent...\n");
+//     sleep(2); // intentional delay
+//     exit(EXIT_SUCCESS);
+//   }
+ 
+//   if(pid > 0) { // in main process
+//     wait(NULL); // wait for child process to finish
+//     close(pipefds[1]); // close write fd
+//     read(pipefds[0], buffer, 5); // read PIN from pipe
+//     close(pipefds[0]); // close read fd
+ 
+//     printf("Parent received PIN '%s'\n", buffer);
+//   }
+ 
+//   return EXIT_SUCCESS;
+// }
+
+// /////////////////////////////////////
+// #include <stdio.h>
+// #include <unistd.h>
+// #include <wait.h>
+
+// int main(int argc, char const *argv[])
+
+// {
+//   int fd[2];
+//   pipe(fd);
+  
+//   if (fork() == 0)
+//     {
+//     char array [10];
+//     close(fd[1]);	
+
+//     read(fd[0], array, 10); 
+//     printf("%s",array);
+//     }
+    
+//     else
+//     {
+//         close(fd[0]);
+//         write(fd[1],"Hello", 60);
+//         wait (NULL);
+//     }
+// }
+// //////////////////////////////////////////////////////
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <unistd.h>
+ 
+// int main(void) {
+//   int pipefds[2];
+ 
+//   if(pipe(pipefds) == -1) {
+//     perror("pipe");
+//     exit(EXIT_FAILURE);
+//   }
+ 
+//   printf("Read File Descriptor Value: %d\n", pipefds[0]);
+//   printf("Write File Descriptor Value: %d\n", pipefds[1]);
+ 
+//   return EXIT_SUCCESS;
+// }

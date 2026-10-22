@@ -2,61 +2,65 @@
 using namespace std;
 
 int val(char c) {
-    if (c >= 'A' && c <= 'Z')
-        return c - 'A';
+    if (c >= 'A' && c <= 'Z') return c - 'A';
     return c - 'a';
 }
 
-char encChar(char c, int k) {
-    if (c >= 'A' && c <= 'Z')
-        return 'A' + (c - 'A' + k) % 26;
-    return 'a' + (c - 'a' + k) % 26;
-}
-
-char decChar(char c, int k) {
-    if (c >= 'A' && c <= 'Z')
-        return 'A' + (c - 'A' - k + 26) % 26;
-    return 'a' + (c - 'a' - k + 26) % 26;
-}
-
-int isLetter(char c) {
-    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
-}
-
-string vigEnc(string t, string key) {
-    string r = "";
+string encrypt(string text, string key) {
+    string result = "";
     int j = 0;
-    for (int i = 0; i < t.length(); i++) {
-        if (isLetter(t[i])) {
-            r = r + encChar(t[i], val(key[j % key.length()]));
+
+    for (int i = 0; i < static_cast<int>(text.length()); i++) {
+        char c = text[i];
+
+        if (c >= 'A' && c <= 'Z') {
+            result += char('A' + (c - 'A' + val(key[j % key.length()])) % 26);
             j++;
-        } else {
-            r = r + t[i];
         }
+        else if (c >= 'a' && c <= 'z') {
+            result += char('a' + (c - 'a' + val(key[j % key.length()])) % 26);
+            j++;
+        }
+        else
+            result += c;
     }
-    return r;
+    return result;
 }
 
-string vigDec(string t, string key) {
-    string r = "";
+string decrypt(string text, string key) {
+    string result = "";
     int j = 0;
-    for (int i = 0; i < t.length(); i++) {
-        if (isLetter(t[i])) {
-            r = r + decChar(t[i], val(key[j % key.length()]));
+
+    for (int i = 0; i < static_cast<int>(text.length()); i++) {
+        char c = text[i];
+        int k = val(key[j % key.length()]);
+
+        if (c >= 'A' && c <= 'Z') {
+            result += char('A' + (c - 'A' - k + 26) % 26);
             j++;
-        } else {
-            r = r + t[i];
         }
+        else if (c >= 'a' && c <= 'z') {
+            result += char('a' + (c - 'a' - k + 26) % 26);
+            j++;
+        }
+        else
+            result += c;
     }
-    return r;
+    return result;
 }
 
 int main() {
-    string t = "CRYPTOGRAPHY";
-    string key = "KEY";
-    string c = vigEnc(t, key);
-    cout << "Plaintext:  " << t << endl;
-    cout << "Encrypted:  " << c << endl;
-    cout << "Decrypted:  " << vigDec(c, key) << endl;
+    string text, key;
+
+    cout << "Enter text: ";
+    getline(cin, text);
+    cout << "Enter keyword: ";
+    cin >> key;
+
+    string cipher = encrypt(text, key);
+
+    cout << "Encrypted: " << cipher << endl;
+    cout << "Decrypted: " << decrypt(cipher, key);
+
     return 0;
 }

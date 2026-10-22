@@ -1,31 +1,40 @@
 #include <iostream>
 using namespace std;
 
-char shiftChar(char c, int k) {
-    if (c >= 'A' && c <= 'Z')
-        return 'A' + (c - 'A' + k + 26) % 26;
-    if (c >= 'a' && c <= 'z')
-        return 'a' + (c - 'a' + k + 26) % 26;
-    return c;
+string encrypt(string text, int key) {
+    string result = "";
+    key = (key % 26 + 26) % 26;
+
+    for (int i = 0; i < static_cast<int>(text.length()); ++i) {
+        char c = text[i];
+
+        if (c >= 'A' && c <= 'Z')
+            c = 'A' + (c - 'A' + key) % 26;
+        else if (c >= 'a' && c <= 'z')
+            c = 'a' + (c - 'a' + key) % 26;
+
+        result += c;
+    }
+    return result;
 }
 
-string caesarEnc(string t, int k) {
-    string r = "";
-    for (int i = 0; i < t.length(); i++)
-        r = r + shiftChar(t[i], k);
-    return r;
-}
-
-string caesarDec(string t, int k) {
-    return caesarEnc(t, 26 - k % 26);
+string decrypt(string text, int key) {
+    return encrypt(text, -key);
 }
 
 int main() {
-    string name = "Hussain Durrani";
-    int k = 3;
-    string c = caesarEnc(name, k);
-    cout << "Plaintext:  " << name << endl;
-    cout << "Encrypted:  " << c << endl;
-    cout << "Decrypted:  " << caesarDec(c, k) << endl;
+    string text;
+    int key;
+
+    cout << "Enter plain text: ";
+    getline(cin, text);
+    cout << "Enter key: ";
+    cin >> key;
+
+    string cipher = encrypt(text, key);
+
+    cout << "Encrypted: " << cipher << endl;
+    cout << "Decrypted: " << decrypt(cipher, key )<< endl;
+
     return 0;
 }

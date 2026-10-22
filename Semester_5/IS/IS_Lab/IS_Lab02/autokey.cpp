@@ -2,66 +2,69 @@
 using namespace std;
 
 int val(char c) {
-    if (c >= 'A' && c <= 'Z')
-        return c - 'A';
+    if (c >= 'A' && c <= 'Z') return c - 'A';
     return c - 'a';
 }
 
-char encChar(char c, int k) {
-    if (c >= 'A' && c <= 'Z')
-        return 'A' + (c - 'A' + k) % 26;
-    return 'a' + (c - 'a' + k) % 26;
-}
-
-char decChar(char c, int k) {
-    if (c >= 'A' && c <= 'Z')
-        return 'A' + (c - 'A' - k + 26) % 26;
-    return 'a' + (c - 'a' - k + 26) % 26;
-}
-
-int isLetter(char c) {
-    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
-}
-
-string autoEnc(string t, string primer) {
-    string r = "";
-    string key = primer;
+string encrypt(string text, string key) {
+    string result = "";
     int j = 0;
-    for (int i = 0; i < t.length(); i++) {
-        if (isLetter(t[i])) {
-            r = r + encChar(t[i], val(key[j]));
-            key = key + t[i];
+
+    for (int i = 0; i < static_cast<int>(text.length()); i++) {
+        char c = text[i];
+
+        if (c >= 'A' && c <= 'Z') {
+            result += char('A' + (c - 'A' + val(key[j])) % 26);
+            key += c;
             j++;
-        } else {
-            r = r + t[i];
         }
+        else if (c >= 'a' && c <= 'z') {
+            result += char('a' + (c - 'a' + val(key[j])) % 26);
+            key += c;
+            j++;
+        }
+        else
+            result += c;
     }
-    return r;
+    return result;
 }
 
-string autoDec(string t, string primer) {
-    string r = "";
-    string key = primer;
+string decrypt(string text, string key) {
+    string result = "";
     int j = 0;
-    for (int i = 0; i < t.length(); i++) {
-        if (isLetter(t[i])) {
-            char p = decChar(t[i], val(key[j]));
-            r = r + p;
-            key = key + p;
+
+    for (int i = 0; i < static_cast<int>(text.length()); i++) {
+        char c = text[i];
+
+        if ((c >= 'A' && c <= 'Z') ||
+            (c >= 'a' && c <= 'z')) {
+
+            char base = (c >= 'A' && c <= 'Z') ? 'A' : 'a';
+
+            char p = base + (c - base - val(key[j]) + 26) % 26;
+
+            result += p;
+            key += p;
             j++;
-        } else {
-            r = r + t[i];
         }
+        else
+            result += c;
     }
-    return r;
+    return result;
 }
 
 int main() {
-    string t = "CRYPTOGRAPHY";
-    string primer = "KEY";
-    string c = autoEnc(t, primer);
-    cout << "Plaintext:  " << t << endl;
-    cout << "Encrypted:  " << c << endl;
-    cout << "Decrypted:  " << autoDec(c, primer) << endl;
+    string text, key;
+
+    cout << "Enter text: ";
+    getline(cin, text);
+    cout << "Enter primer: ";
+    cin >> key;
+    cin.ignore(); // Ignore the newline character left in the buffer
+    string cipher = encrypt(text, key);
+
+    cout << "Encrypted: " << cipher << endl;
+    cout << "Decrypted: " << decrypt(cipher, key);
+
     return 0;
 }
