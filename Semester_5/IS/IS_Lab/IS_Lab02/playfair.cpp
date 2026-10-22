@@ -29,11 +29,11 @@ void makeGrid(string key) {
     for (int i = 0; i < 25; i++) { grid[i / 5][i % 5] = used[i]; }
 }
 
-void position(char c, int &r, int &col) {
+void position(char c, int &row, int &col) {
     for (int i = 0; i < 5; i++)
         for (int j = 0; j < 5; j++)
             if (grid[i][j] == c) {
-                r = i;
+                row = i;
                 col = j;
                 return;
             }
