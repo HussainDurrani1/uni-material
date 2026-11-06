@@ -16,15 +16,13 @@ greater = lambda x: x > 3
 threes = lambda x : x % 3 == 0
 
 # # MAP: Double every number
-# doubled = list(map(my_double, nums))
-# print("doubled after map", doubled)
+doubled = list(map(my_double, nums))
+print("doubled after map", doubled)
 
 # # FILTER: Only numbers > 3
-# greater_than_three = list(filter(threes, nums))
-# print("filtered list", greater_than_three)
+greater_than_three = list(filter(greater, nums))
+print("filtered list", greater_than_three)
 
 # REDUCE: Sum of all numbers
 total = reduce(lambda x, y: x * y, nums)
 print("reduced:", total)
-
-

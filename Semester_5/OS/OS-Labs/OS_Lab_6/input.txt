@@ -1,0 +1,22 @@
+total 24
+dr-xr-xr-x.   1 root root    0 Jan 16  2026 afs
+lrwxrwxrwx.   1 root root    7 Jan 16  2026 bin -> usr/bin
+dr-xr-xr-x.   6 root root 4096 Oct 14 19:54 boot
+drwxr-xr-x.  20 root root 4480 Nov  2 14:35 dev
+drwxr-xr-x.   1 root root 5236 Oct 22 22:34 etc
+drwxr-xr-x.   1 root root   34 May 24 13:50 home
+lrwxrwxrwx.   1 root root    7 Jan 16  2026 lib -> usr/lib
+lrwxrwxrwx.   1 root root    9 Jan 16  2026 lib64 -> usr/lib64
+drwxr-xr-x.   1 root root    0 Jan 16  2026 media
+drwxr-xr-x.   1 root root    0 Jan 16  2026 mnt
+drwxr-xr-x.   1 root root   74 Oct 15 08:36 opt
+dr-xr-xr-x. 409 root root    0 Nov  1 15:47 proc
+dr-xr-x---.   1 root root  176 Oct 12 22:56 root
+drwxr-xr-x.  62 root root 1680 Nov  1 10:47 run
+lrwxrwxrwx.   1 root root    8 Jan 16  2026 sbin -> usr/sbin
+lrwxrwxrwx.   1 root root   19 Oct 22 21:52 snap -> /var/lib/snapd/snap
+drwxr-xr-x.   1 root root    0 Jan 16  2026 srv
+dr-xr-xr-x.  13 root root    0 Nov  2 21:02 sys
+drwxrwxrwt.  20 root root  480 Nov  2 21:06 tmp
+drwxr-xr-x.   1 root root  100 Apr 22  2026 usr
+drwxr-xr-x.   1 root root  192 Oct 22 21:52 var

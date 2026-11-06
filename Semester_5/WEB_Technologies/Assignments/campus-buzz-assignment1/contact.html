@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBuzz - Contact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">🎓 Campus<span>Buzz</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Contact Us</h1>
+        <p>Want to list your society event on CampusBuzz, or have a question? Send us a message.</p>
+    </section>
+
+    <main class="container">
+        <!-- Contact Form -->
+        <form class="contact-form" action="#" method="post">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="society">Society / Club (if any)</label>
+            <input type="text" id="society" name="society" placeholder="e.g. GDGoC UCP">
+
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject">
+                <option>List a new event</option>
+                <option>Question about an event</option>
+                <option>Report a problem</option>
+                <option>Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message here" required></textarea>
+
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>University:</strong> University of Central Punjab (UCP), Lahore</p>
+            <p><strong>Project:</strong> CampusBuzz – Web Technologies Semester Project</p>
+            <p><strong>Team:</strong> Muhammad Hussain Durrani &amp; Ali Hamza</p>
+            <p><strong>Group:</strong> Null &amp; Void</p>
+            <p><strong>Teacher:</strong> Ihtisham Ul Haq</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Campus Buzz - Web Technologies Assignment 1 by Muhammad Hussain Durrani &amp; Ali Hamza</p>
+        <p><strong>Null &amp; Void</strong></p>
+        <p>University of Central Punjab (UCP) | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+</body>
+</html>

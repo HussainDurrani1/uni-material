@@ -1,0 +1,4 @@
+ls -l /tmp
+pwd
+cat missing.txt
+date

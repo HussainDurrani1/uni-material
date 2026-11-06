@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBuzz - My Schedule</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">🎓 Campus<span>Buzz</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="my-schedule.html" class="active">My Schedule <span id="schedule-count" class="badge bg-warning text-dark">0</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>My Schedule 📅</h1>
+        <p>Events you are planning to attend. Remove an event if you cannot make it.</p>
+    </section>
+
+    <main class="container">
+        <div class="schedule-box">
+            <div id="schedule-empty" class="alert alert-info" style="display: none;">
+                Your schedule is empty. Go to the <a href="events.html">Events page</a> and add an event to your schedule.
+            </div>
+
+            <!-- Bootstrap Table -->
+            <table id="schedule-table" class="table table-striped align-middle">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date &amp; Time</th>
+                        <th>Venue</th>
+                        <th>Entry</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="schedule-items">
+                </tbody>
+            </table>
+
+            <div class="schedule-count">
+                Total Events: <span id="schedule-total-events">0</span>
+            </div>
+
+            <div class="view-all">
+                <button type="button" class="btn btn-schedule" onclick="clearSchedule()">Clear Schedule</button>
+                <a href="events.html" class="btn">Browse More Events</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Campus Buzz - Web Technologies Assignment 2 by Muhammad Hussain Durrani &amp; Ali Hamza</p>
+        <p><strong>Null &amp; Void</strong></p>
+        <p>University of Central Punjab (UCP) | <a href="contact.html">Contact Us</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

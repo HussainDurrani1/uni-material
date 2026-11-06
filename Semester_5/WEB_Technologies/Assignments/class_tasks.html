@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <button id="btn">Make new List</button>
+    <script>
+    // Create list of marks (store random values from 1-100) 10 Size
+    // Create another list On Search button marks  > 80 will be store in new list. 
+    // Element.event('eventName' , function);
+
+    let marks = [];
+    for(let i=0;i<10;i++){
+        let ranvalue = math.round(Math.random() * 100);
+        marks.push(ranvalue);
+    }
+    let newlist = [];
+
+    let searchbutton = document.getElementById("btn");
+    searchbutton.addEventListener("click",() => {
+        for(let i=0;i<marks.length;i++){
+            if(marks[i] > 80){
+                newlist.push(marks[i]);
+            }
+        }
+        console.log(newlist)
+    })
+    </script>
+</body>
+</html>

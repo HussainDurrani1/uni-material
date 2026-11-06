@@ -1,0 +1,45 @@
+background-color: #5a3840;  red
+  background-color: #4d3046; purple
+  color: #ffb37b; Yellow
+    background-color: #fff199; HOVER
+	
+	
+	Starting HTML Code
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Login Page Template - W3jar.Com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/yourFile.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+
+	//Write Your Code Here..............................
+    
+</body>
+</html>
+	
+	Starting Body CSS
+	
+	body {
+  margin: 0;
+  padding: 0;
+  color: #222222;
+  background-color: #f2f2f0;
+  background-color: #5a3840;
+  background-image: url("../images/cover.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+
+

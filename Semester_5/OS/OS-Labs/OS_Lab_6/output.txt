@@ -1,0 +1,4 @@
+drwxrwxrwt.  20 root root  480 Nov  2 21:06 tmp
+drwxr-xr-x.   1 root root    0 Jan 16  2026 media
+drwxr-xr-x.   1 root root    0 Jan 16  2026 mnt
+drwxr-xr-x.   1 root root   34 May 24 13:50 home
