@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBuzz - Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">🎓 Campus<span>Buzz</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="events.html" class="active">Events</a></li>
+            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="my-schedule.html">My Schedule <span id="schedule-count" class="badge bg-warning text-dark">0</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>All Events</h1>
+        <p>Every upcoming event at University of Central Punjab, in one place.</p>
+    </section>
+
+    <main class="container">
+
+        <!-- Filter Bar (Bootstrap form classes, filters run in script.js) -->
+        <div class="filter-card">
+            <div class="row g-3">
+                <div class="col-lg-5 col-md-6">
+                    <input type="text" id="filter-search" class="form-control" placeholder="Search events, societies, or locations...">
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <select id="filter-category" class="form-select">
+                        <option value="all">All Categories</option>
+                        <option>Technology</option>
+                        <option>Cultural</option>
+                        <option>Sports</option>
+                        <option>Seminar</option>
+                        <option>Academic</option>
+                        <option>Arts &amp; Media</option>
+                        <option>Food &amp; Festivals</option>
+                        <option>Career</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <select class="form-select">
+                        <option>This Month</option>
+                        <option>November 2026</option>
+                    </select>
+                </div>
+            </div>
+            <div class="filter-row">
+                <span class="filter-label">Price:</span>
+                <button type="button" class="price-pill active-pill" data-price="all" onclick="setPriceFilter('all')">All</button>
+                <button type="button" class="price-pill" data-price="free" onclick="setPriceFilter('free')">Free</button>
+                <button type="button" class="price-pill" data-price="paid" onclick="setPriceFilter('paid')">Paid</button>
+                <span class="filter-label">Sort:</span>
+                <select class="form-select sort-select">
+                    <option>Upcoming</option>
+                    <option>This Week</option>
+                </select>
+                <button type="button" class="btn btn-small" onclick="applyFilters()">Apply Filters</button>
+                <button type="button" class="clear-btn" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </div>
+
+        <div class="chips-row">
+            <span class="found-text">📅 <strong><span id="events-count">10</span> events found</strong></span>
+            <span class="chip c-blue">💻 Technology</span>
+            <span class="chip c-pink">🎭 Cultural</span>
+            <span class="chip c-green">🏆 Sports</span>
+            <span class="chip c-purple">🎤 Seminar</span>
+            <span class="chip c-cyan">💼 Career</span>
+            <span class="chip c-orange">🍔 Food &amp; Festivals</span>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 event-col" data-category="Seminar" data-price="free" data-search="ai & future seminar gdgoc ucp seminar hall, ucp seminar">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/ai-seminar.svg" alt="AI & Future Seminar">
+                        <span class="category">Seminar</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">AI &amp; Future Seminar</h3>
+                        <p>📅 9 November 2026, 11:00 AM</p>
+                        <p>📍 Seminar Hall, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 GDGoC UCP</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=ai-seminar" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('ai-seminar')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Technology" data-price="free" data-search="tech fest 2026 ieee ucp main auditorium, ucp technology">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/tech-fest.svg" alt="Tech Fest 2026">
+                        <span class="category">Technology</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Tech Fest 2026</h3>
+                        <p>📅 12 November 2026, 10:00 AM</p>
+                        <p>📍 Main Auditorium, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 IEEE UCP</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=tech-fest" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('tech-fest')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Academic" data-price="free" data-search="book fair 2026 library society central library, ucp academic">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/book-fair.svg" alt="Book Fair 2026">
+                        <span class="category">Academic</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Book Fair 2026</h3>
+                        <p>📅 15 - 17 November 2026, 9:00 AM</p>
+                        <p>📍 Central Library, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Library Society</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=book-fair" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('book-fair')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Arts &amp; Media" data-price="free" data-search="photography exhibition media society art gallery, ucp arts &amp; media">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/photo-exhibition.svg" alt="Photography Exhibition">
+                        <span class="category">Arts &amp; Media</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Photography Exhibition</h3>
+                        <p>📅 16 November 2026, 12:00 PM</p>
+                        <p>📍 Art Gallery, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Media Society</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=photo-exhibition" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('photo-exhibition')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Cultural" data-price="paid" data-search="taakra cultural night taakra society ucp main ground cultural">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/taakra.svg" alt="TAAKRA Cultural Night">
+                        <span class="category">Cultural</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">TAAKRA Cultural Night</h3>
+                        <p>📅 18 November 2026, 6:00 PM</p>
+                        <p>📍 UCP Main Ground</p>
+                        <div class="card-footer">
+                            <span class="society">👥 TAAKRA Society</span>
+                            <span class="price price-pink">Rs. 500</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=taakra" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('taakra')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Sports" data-price="free" data-search="cricket tournament sports society ucp cricket ground sports">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/cricket.svg" alt="Cricket Tournament">
+                        <span class="category">Sports</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Cricket Tournament</h3>
+                        <p>📅 20 November 2026, 9:00 AM</p>
+                        <p>📍 UCP Cricket Ground</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Sports Society</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=cricket" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('cricket')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Food &amp; Festivals" data-price="paid" data-search="food street festival food society cafeteria lawn, ucp food &amp; festivals">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/food-street.svg" alt="Food Street Festival">
+                        <span class="category">Food &amp; Festivals</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Food Street Festival</h3>
+                        <p>📅 22 November 2026, 4:00 PM</p>
+                        <p>📍 Cafeteria Lawn, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Food Society</span>
+                            <span class="price price-yellow">Rs. 200 Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=food-street" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('food-street')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Career" data-price="free" data-search="career fair 2026 career services main hall, ucp career">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/career-fair.svg" alt="Career Fair 2026">
+                        <span class="category">Career</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Career Fair 2026</h3>
+                        <p>📅 25 November 2026, 9:00 AM</p>
+                        <p>📍 Main Hall, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Career Services</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=career-fair" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('career-fair')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Technology" data-price="paid" data-search="robotics competition robotics club engineering lab, ucp technology">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/robotics.svg" alt="Robotics Competition">
+                        <span class="category">Technology</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Robotics Competition</h3>
+                        <p>📅 28 November 2026, 10:00 AM</p>
+                        <p>📍 Engineering Lab, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Robotics Club</span>
+                            <span class="price price-yellow">Rs. 300</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=robotics" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('robotics')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 event-col" data-category="Cultural" data-price="paid" data-search="music night music society amphitheatre, ucp cultural">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/music-night.svg" alt="Music Night">
+                        <span class="category">Cultural</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Music Night</h3>
+                        <p>📅 30 November 2026, 7:00 PM</p>
+                        <p>📍 Amphitheatre, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Music Society</span>
+                            <span class="price price-pink">Rs. 400</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=music-night" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('music-night')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Help Card -->
+        <div class="help-card">
+            <h3>✅ Need Help Planning?</h3>
+            <p>Make the most of CampusBuzz with your personal schedule.</p>
+            <p>🔖 <strong>Save events to your schedule</strong> — keep your favorite events in one place.</p>
+            <p>🎟 <strong>Track free and paid events</strong> — easily see which events are free or ticketed.</p>
+            <p>🔔 <strong>Never miss reminders</strong> — get timely notifications for your saved events.</p>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <div>
+                <h3>Plan your <span>month</span> at UCP.</h3>
+                <p>Save events to My Schedule, set reminders, and never miss what's happening at UCP.</p>
+            </div>
+            <a href="my-schedule.html" class="btn">Open My Schedule →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-cols">
+            <div class="footer-col">
+                <a href="index.html" class="logo">🎓 Campus<span>Buzz</span></a>
+                <p>All UCP Events, One Place.</p>
+                <p><strong>Null &amp; Void</strong></p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3>For Students</h3>
+                <a href="my-schedule.html">My Schedule</a>
+                <a href="events.html">Explore Events</a>
+                <a href="index.html#categories">Categories</a>
+                <a href="contact.html">Suggest an Event</a>
+            </div>
+            <div class="footer-col">
+                <h3>Get in Touch</h3>
+                <p>✉ campusbuzz@ucp.edu.pk</p>
+                <p>📍 University of Central Punjab (UCP), Lahore</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Campus Buzz - Web Technologies Assignment 2 by Muhammad Hussain Durrani &amp; Ali Hamza</p>
+            <p>University of Central Punjab (UCP) | <a href="contact.html">Contact Us</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBuzz - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">🎓 Campus<span>Buzz</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="index.html#categories">Categories</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="my-schedule.html">My Schedule <span id="schedule-count" class="badge bg-warning text-dark">0</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <span class="uni-pill">University of Central Punjab (UCP)</span>
+            <h1>Campus <span>Buzz</span></h1>
+            <h2>All UCP Events, One Place.</h2>
+            <p>Discover and explore all events at UCP — from tech fests and cultural nights to sports, seminars, and festivals. Your complete campus event hub, built for UCP students.</p>
+            <div class="search-bar">
+                <span>🔍</span>
+                <input type="text" placeholder="Search events, categories, or clubs...">
+                <a href="events.html" class="btn btn-small">Search</a>
+            </div>
+            <a href="events.html" class="btn">📅 Explore Events →</a>
+            <a href="#categories" class="btn btn-outline">▦ View Categories</a>
+            <div class="stat-chips">
+                <div class="stat-chip"><span>📅</span><div><strong>50+</strong><p>Upcoming Events</p></div></div>
+                <div class="stat-chip"><span>👥</span><div><strong>20</strong><p>UCP Clubs</p></div></div>
+                <div class="stat-chip"><span>⚡</span><div><strong>Weekly</strong><p>Updates</p></div></div>
+            </div>
+        </div>
+        <div class="hero-photo">
+            <img src="images/ucp-building.jpg" alt="University of Central Punjab building" class="hero-img">
+            <div class="floating-card">
+                <p class="float-label">📅 Upcoming Event</p>
+                <p class="float-title">Tech Fest 2026</p>
+                <p class="float-sub">📍 12 Nov 2026 • 10:00 AM</p>
+                <a href="event-detail.html?event=tech-fest" class="float-arrow">→</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <!-- Event Categories -->
+        <div class="section-head" id="categories">
+            <span class="line"></span><h2>Event Categories</h2><span class="line"></span>
+        </div>
+        <p class="section-subtitle">Find events by what you are interested in.</p>
+        <div class="categories">
+            <div class="category-box c-blue"><span>💻</span><div><p class="cat-name">Technology</p><p class="cat-sub">Tech fests, hackathons and more</p></div></div>
+            <div class="category-box c-pink"><span>🎭</span><div><p class="cat-name">Cultural</p><p class="cat-sub">Music, cultural nights and performances</p></div></div>
+            <div class="category-box c-green"><span>🏆</span><div><p class="cat-name">Sports</p><p class="cat-sub">Tournaments, galas and competitions</p></div></div>
+            <div class="category-box c-purple"><span>🎤</span><div><p class="cat-name">Seminars</p><p class="cat-sub">Talks, workshops and guest sessions</p></div></div>
+            <div class="category-box c-orange"><span>🍔</span><div><p class="cat-name">Food &amp; Festivals</p><p class="cat-sub">Food fests, celebrations and campus fairs</p></div></div>
+            <div class="category-box c-cyan"><span>📷</span><div><p class="cat-name">Arts &amp; Media</p><p class="cat-sub">Photography, film, design and creative events</p></div></div>
+            <div class="category-box c-green"><span>💼</span><div><p class="cat-name">Career</p><p class="cat-sub">Career fairs, job talks and skill sessions</p></div></div>
+            <div class="category-box c-pink"><span>👥</span><div><p class="cat-name">Community</p><p class="cat-sub">Social drives, awareness events and student initiatives</p></div></div>
+        </div>
+
+        <!-- This Week at UCP -->
+        <div class="week-card">
+            <div class="week-title">
+                <h3>📅 This Week at UCP</h3>
+                <p>A quick look at what is happening on campus this week.</p>
+            </div>
+            <div class="day-box"><p class="day-name">Mon</p><p class="day-date">10 Nov</p><span class="day-chip ">-</span></div>
+            <div class="day-box"><p class="day-name">Tue</p><p class="day-date">11 Nov</p><span class="day-chip chip-purple">Seminar</span></div>
+            <div class="day-box"><p class="day-name">Wed</p><p class="day-date">12 Nov</p><span class="day-chip chip-yellow day-today">Tech Fest</span></div>
+            <div class="day-box"><p class="day-name">Thu</p><p class="day-date">13 Nov</p><span class="day-chip ">-</span></div>
+            <div class="day-box"><p class="day-name">Fri</p><p class="day-date">14 Nov</p><span class="day-chip chip-green">Sports</span></div>
+            <div class="day-box"><p class="day-name">Sat</p><p class="day-date">15 Nov</p><span class="day-chip chip-pink">Cultural</span></div>
+            <div class="day-box"><p class="day-name">Sun</p><p class="day-date">16 Nov</p><span class="day-chip ">-</span></div>
+        </div>
+
+        <!-- Featured Events -->
+        <div class="section-head">
+            <span class="line"></span><h2>Featured Events</h2><span class="line"></span>
+        </div>
+        <p class="section-subtitle">Some of the biggest upcoming events at UCP. Explore details, save to your schedule, and never miss out.</p>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 event-col" data-category="Technology" data-price="free" data-search="tech fest 2026 ieee ucp main auditorium, ucp technology">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/tech-fest.svg" alt="Tech Fest 2026">
+                        <span class="category">Technology</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Tech Fest 2026</h3>
+                        <p>📅 12 November 2026, 10:00 AM</p>
+                        <p>📍 Main Auditorium, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 IEEE UCP</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=tech-fest" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('tech-fest')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 event-col" data-category="Cultural" data-price="paid" data-search="taakra cultural night taakra society ucp main ground cultural">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/taakra.svg" alt="TAAKRA Cultural Night">
+                        <span class="category">Cultural</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">TAAKRA Cultural Night</h3>
+                        <p>📅 18 November 2026, 6:00 PM</p>
+                        <p>📍 UCP Main Ground</p>
+                        <div class="card-footer">
+                            <span class="society">👥 TAAKRA Society</span>
+                            <span class="price price-pink">Rs. 500</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=taakra" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('taakra')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 event-col" data-category="Career" data-price="free" data-search="career fair 2026 career services main hall, ucp career">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/career-fair.svg" alt="Career Fair 2026">
+                        <span class="category">Career</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Career Fair 2026</h3>
+                        <p>📅 25 November 2026, 9:00 AM</p>
+                        <p>📍 Main Hall, UCP</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Career Services</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=career-fair" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('career-fair')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 event-col" data-category="Sports" data-price="free" data-search="cricket tournament sports society ucp cricket ground sports">
+                <div class="card">
+                    <div class="card-top">
+                        <img src="images/cricket.svg" alt="Cricket Tournament">
+                        <span class="category">Sports</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Cricket Tournament</h3>
+                        <p>📅 20 November 2026, 9:00 AM</p>
+                        <p>📍 UCP Cricket Ground</p>
+                        <div class="card-footer">
+                            <span class="society">👥 Sports Society</span>
+                            <span class="price price-green">Free Entry</span>
+                        </div>
+                        <div class="card-buttons">
+                            <a href="event-detail.html?event=cricket" class="btn btn-small">View Details</a>
+                            <button type="button" class="btn btn-small btn-schedule" onclick="addToSchedule('cricket')">Add to Schedule 📅</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-all">
+            <a href="events.html" class="btn btn-outline-navy">View All Events →</a>
+        </div>
+
+        <!-- Why use CampusBuzz -->
+        <div class="section-head">
+            <span class="line"></span><h2>Why use CampusBuzz?</h2><span class="line"></span>
+        </div>
+        <p class="section-subtitle">A simple and smarter way to stay connected with everything happening at UCP.</p>
+        <div class="why-row">
+            <div class="why-card">
+                <span class="why-icon">📅</span>
+                <h3>Discover Events</h3>
+                <p>Explore all UCP events in one place, from tech and cultural to sports and more.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-icon">🔖</span>
+                <h3>Save Your Schedule</h3>
+                <p>Add events to your personal schedule and keep your campus week organized.</p>
+            </div>
+            <div class="why-card">
+                <span class="why-icon">🔔</span>
+                <h3>Never Miss Reminders</h3>
+                <p>Get event reminders and important updates, so you are always in the loop.</p>
+            </div>
+        </div>
+
+        <!-- Clubs and Testimonial -->
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="info-panel">
+                    <h3>Student Clubs &amp; Community</h3>
+                    <p>UCP's vibrant student clubs make campus life more exciting, diverse, and engaging.</p>
+                    <div class="club-chips">
+                        <span class="club-chip">IEEE UCP</span>
+                        <span class="club-chip">TAAKRA Society</span>
+                        <span class="club-chip">UCP Sports</span>
+                        <span class="club-chip">Media Society</span>
+                        <span class="club-chip">More Clubs +</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="info-panel panel-blue">
+                    <h3>What UCP Students Say</h3>
+                    <p class="quote">"CampusBuzz makes it so easy to find and keep track of all UCP events. I never miss the fun stuff on campus anymore!"</p>
+                    <p><strong>Areeba Khan</strong> — BSCS, 6th Semester</p>
+                    <p class="stars">⭐⭐⭐⭐⭐</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <div>
+                <h3>Ready to plan your <span>campus week?</span></h3>
+                <p>Explore upcoming events, save your favorites, and make the most of your time at UCP.</p>
+            </div>
+            <a href="events.html" class="btn">Explore Events Now →</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-cols">
+            <div class="footer-col">
+                <a href="index.html" class="logo">🎓 Campus<span>Buzz</span></a>
+                <p>All UCP Events, One Place.</p>
+                <p><strong>Null &amp; Void</strong></p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="about.html">About Us</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3>For Students</h3>
+                <a href="my-schedule.html">My Schedule</a>
+                <a href="events.html">Explore Events</a>
+                <a href="index.html#categories">Categories</a>
+                <a href="contact.html">Suggest an Event</a>
+            </div>
+            <div class="footer-col">
+                <h3>Get in Touch</h3>
+                <p>✉ campusbuzz@ucp.edu.pk</p>
+                <p>📍 University of Central Punjab (UCP), Lahore</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Campus Buzz - Web Technologies Assignment 2 by Muhammad Hussain Durrani &amp; Ali Hamza</p>
+            <p>University of Central Punjab (UCP) | <a href="contact.html">Contact Us</a></p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

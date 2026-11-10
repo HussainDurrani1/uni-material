@@ -1,0 +1,1188 @@
+/* CampusBuzz - Assignment 2 - Shared Stylesheet */
+/* Design is the same as the Assignment 1 v2 design (from the design image). */
+/* Bootstrap is added in Assignment 2 (link in every page head). */
+/* This file is our custom CSS on top of Bootstrap. */
+/* Every property is written on its own line with proper indentation. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f3f6fc;
+    color: #1f2a3d;
+    line-height: 1.6;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Animations - added properly in Assignment 2 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.96);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #2456e6;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #0d2140;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 40px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+}
+
+.logo span {
+    color: #ffc61a;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 7px 18px;
+    border-radius: 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.nav-links a.active {
+    background-color: #ffc61a;
+    color: #0d2140;
+}
+
+/* Hero */
+.hero {
+    background: linear-gradient(115deg, #14265e, #2456e6 55%, #7c3aed);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 48px 60px 60px 60px;
+    animation: slideUp 0.6s ease;
+}
+
+.hero-text {
+    max-width: 520px;
+}
+
+.uni-pill {
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 4px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: 50px;
+    line-height: 1.15;
+}
+
+.hero h1 span {
+    color: #ffc61a;
+}
+
+.hero h2 {
+    font-size: 23px;
+    margin: 8px 0 12px 0;
+}
+
+.hero p {
+    font-size: 15px;
+    opacity: 0.95;
+    margin-bottom: 22px;
+}
+
+.hero-img {
+    width: 460px;
+    max-width: 100%;
+    border: 5px solid white;
+    border-radius: 22px;
+    transform: rotate(2deg);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.30);
+    animation: zoomIn 0.7s ease;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #ffc61a;
+    color: #0d2140;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background-color: #ffc61a;
+    color: #0d2140;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    margin-left: 10px;
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+.btn-small {
+    padding: 7px 16px;
+    font-size: 13px;
+}
+
+.btn-schedule {
+    background-color: #0d2140;
+    color: white;
+}
+
+.btn-schedule:hover {
+    background-color: #2456e6;
+    color: white;
+}
+
+/* Page header for inner pages */
+.page-header {
+    background: linear-gradient(115deg, #14265e, #2456e6 55%, #7c3aed);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    animation: slideUp 0.6s ease;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    margin-bottom: 6px;
+}
+
+/* Main content */
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 36px 20px 10px 20px;
+}
+
+.section-head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.section-head h2 {
+    font-size: 28px;
+    color: #0d2140;
+    text-align: center;
+    margin: 0;
+}
+
+.line {
+    width: 44px;
+    height: 4px;
+    background-color: #ffc61a;
+    border-radius: 4px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #5b6b82;
+    font-size: 15px;
+    margin: 6px 0 24px 0;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 42px;
+}
+
+.category-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #0d2140;
+    font-size: 15px;
+    box-shadow: 0 3px 8px rgba(13, 33, 64, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.category-box:hover {
+    transform: translateY(-4px);
+}
+
+.category-box span {
+    font-size: 24px;
+}
+
+.c-blue {
+    background-color: #dbeafe;
+}
+
+.c-pink {
+    background-color: #fce7f3;
+}
+
+.c-green {
+    background-color: #dcfce7;
+}
+
+.c-purple {
+    background-color: #ede9fe;
+}
+
+.c-orange {
+    background-color: #ffedd5;
+}
+
+.c-cyan {
+    background-color: #cffafe;
+}
+
+/* Event cards */
+.card {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideUp 0.6s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 26px rgba(13, 33, 64, 0.18);
+}
+
+.card-top {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-top img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-top img {
+    transform: scale(1.07);
+}
+
+.card-top .category {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #0d2140;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.card-top h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 14px;
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.60);
+}
+
+.card-body {
+    padding: 14px 18px 18px 18px;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #5b6b82;
+    margin-bottom: 4px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.society {
+    font-size: 13px;
+    font-weight: bold;
+    color: #0d2140;
+}
+
+.price {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+
+.price-green {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.price-pink {
+    background-color: #fce7f3;
+    color: #be185d;
+}
+
+.price-yellow {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.card-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+.view-all {
+    text-align: center;
+    margin-top: 28px;
+}
+
+/* About page */
+.text-box {
+    background-color: white;
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    margin-bottom: 22px;
+    animation: slideUp 0.6s ease;
+}
+
+.text-box h2 {
+    color: #0d2140;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.team-member {
+    background-color: #eef4ff;
+    padding: 22px;
+    border-radius: 14px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: scale(1.03);
+}
+
+.team-member h3 {
+    color: #0d2140;
+    margin-bottom: 4px;
+}
+
+/* Contact page */
+.contact-form {
+    background-color: white;
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    animation: slideUp 0.6s ease;
+    height: 100%;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    color: #0d2140;
+    margin-top: 14px;
+    margin-bottom: 5px;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d7dee9;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.contact-form select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d7dee9;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.contact-form textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #d7dee9;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    height: 120px;
+}
+
+.contact-form .btn {
+    margin-top: 18px;
+}
+
+.contact-info {
+    background-color: white;
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+}
+
+.contact-info h2 {
+    color: #0d2140;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+/* Event detail page */
+.detail-img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(13, 33, 64, 0.18);
+    animation: zoomIn 0.6s ease;
+}
+
+.detail-box {
+    background-color: white;
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    animation: slideUp 0.6s ease;
+}
+
+.detail-box h1 {
+    color: #0d2140;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.detail-box h2 {
+    color: #0d2140;
+    font-size: 21px;
+    margin-top: 22px;
+    margin-bottom: 8px;
+}
+
+/* My Schedule page */
+.schedule-box {
+    background-color: white;
+    padding: 26px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    animation: slideUp 0.6s ease;
+}
+
+.remove-btn {
+    background-color: #fce7f3;
+    color: #be185d;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.schedule-count {
+    text-align: right;
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0d2140;
+}
+
+/* Footer */
+.footer {
+    background-color: #0d2140;
+    color: white;
+    text-align: center;
+    padding: 22px 20px;
+    margin-top: 48px;
+    font-size: 14px;
+}
+
+.footer p {
+    margin-bottom: 4px;
+}
+
+.footer a {
+    color: #ffc61a;
+    font-weight: bold;
+}
+
+/* ---- New design sections (from the ChatGPT redesign images) ---- */
+
+/* Card title now sits in the card body, under the image */
+.card-title {
+    color: #0d2140;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+/* Hero photo with floating event card */
+.hero-photo {
+    position: relative;
+}
+
+.floating-card {
+    position: absolute;
+    bottom: -14px;
+    left: -20px;
+    background-color: white;
+    border-radius: 14px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.7s ease;
+}
+
+.float-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #5b6b82;
+    margin: 0;
+}
+
+.float-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #0d2140;
+    margin: 0;
+}
+
+.float-sub {
+    font-size: 12px;
+    color: #5b6b82;
+    margin: 0;
+}
+
+.float-arrow {
+    display: inline-block;
+    background-color: #ffc61a;
+    color: #0d2140;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+/* Hero search bar and stat chips */
+.search-bar {
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px 6px 16px;
+    margin-bottom: 18px;
+}
+
+.search-bar input {
+    border: none;
+    width: 100%;
+    font-size: 14px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.stat-chips {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+.stat-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 8px 16px;
+    font-size: 20px;
+}
+
+.stat-chip strong {
+    font-size: 16px;
+}
+
+.stat-chip p {
+    font-size: 12px;
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* Category boxes with a small line under the name */
+.cat-name {
+    font-weight: bold;
+    color: #0d2140;
+    font-size: 15px;
+    margin: 0;
+}
+
+.cat-sub {
+    font-size: 12px;
+    font-weight: normal;
+    color: #5b6b82;
+    margin: 0;
+}
+
+/* This Week strip on Home */
+.week-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 18px 22px;
+    margin-bottom: 42px;
+    animation: slideUp 0.6s ease;
+}
+
+.week-title {
+    max-width: 210px;
+}
+
+.week-title h3 {
+    color: #0d2140;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.week-title p {
+    font-size: 13px;
+    color: #5b6b82;
+    margin: 0;
+}
+
+.day-box {
+    width: 88px;
+    text-align: center;
+    background-color: #f3f6fc;
+    border-radius: 12px;
+    padding: 10px 6px;
+}
+
+.day-today {
+    border: 2px solid #ffc61a;
+}
+
+.day-name {
+    font-weight: bold;
+    color: #0d2140;
+    font-size: 14px;
+    margin: 0;
+}
+
+.day-date {
+    font-size: 12px;
+    color: #5b6b82;
+    margin: 0;
+}
+
+.day-chip {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 12px;
+    background-color: #eef4ff;
+    color: #0d2140;
+    margin-top: 4px;
+}
+
+.chip-purple {
+    background-color: #ede9fe;
+}
+
+.chip-yellow {
+    background-color: #ffc61a;
+}
+
+.chip-green {
+    background-color: #dcfce7;
+}
+
+.chip-pink {
+    background-color: #fce7f3;
+}
+
+/* Why use CampusBuzz cards */
+.why-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 42px;
+}
+
+.why-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    padding: 24px;
+    width: 338px;
+    animation: slideUp 0.6s ease;
+}
+
+.why-card h3 {
+    color: #0d2140;
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.why-card p {
+    font-size: 14px;
+    color: #5b6b82;
+    margin: 0;
+}
+
+.why-icon {
+    font-size: 30px;
+}
+
+/* Clubs and testimonial panels */
+.info-panel {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    padding: 24px;
+    height: 100%;
+    animation: slideUp 0.6s ease;
+}
+
+.info-panel h3 {
+    color: #0d2140;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.info-panel p {
+    font-size: 14px;
+    color: #5b6b82;
+}
+
+.panel-blue {
+    background-color: #dbeafe;
+}
+
+.quote {
+    font-size: 15px;
+    color: #1f2a3d;
+}
+
+.stars {
+    margin: 0;
+}
+
+.club-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.club-chip {
+    background-color: #eef4ff;
+    color: #0d2140;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 12px;
+}
+
+/* Gradient call-to-action banner */
+.cta-banner {
+    background: linear-gradient(115deg, #14265e, #2456e6 55%, #7c3aed);
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 26px 30px;
+    margin-top: 34px;
+    animation: slideUp 0.6s ease;
+}
+
+.cta-banner h3 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.cta-banner h3 span {
+    color: #ffc61a;
+}
+
+.cta-banner p {
+    font-size: 14px;
+    opacity: 0.95;
+    margin: 0;
+}
+
+/* Outlined navy button on white background */
+.btn-outline-navy {
+    background-color: white;
+    color: #0d2140;
+    border: 2px solid #0d2140;
+}
+
+.btn-outline-navy:hover {
+    background-color: #0d2140;
+    color: white;
+}
+
+/* Filled pill for inner page heroes */
+.pill-filled {
+    background-color: #7c3aed;
+    border: none;
+}
+
+/* Yellow word inside a page header title */
+.page-header h1 span {
+    color: #ffc61a;
+}
+
+/* Events filter card */
+.filter-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(13, 33, 64, 0.08);
+    padding: 22px;
+    margin-bottom: 22px;
+    animation: slideUp 0.6s ease;
+}
+
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+.filter-label {
+    font-weight: bold;
+    color: #0d2140;
+    font-size: 14px;
+}
+
+.price-pill {
+    background-color: white;
+    border: 1px solid #d7dee9;
+    color: #0d2140;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.active-pill {
+    background-color: #ffc61a;
+}
+
+.sort-select {
+    width: 150px;
+}
+
+.clear-btn {
+    background-color: transparent;
+    border: none;
+    color: #2456e6;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* Category chips row above the events grid */
+.chips-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+
+.found-text {
+    color: #0d2140;
+    font-size: 15px;
+}
+
+.chip {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0d2140;
+}
+
+/* Help card under the events grid */
+.help-card {
+    background-color: #eef4ff;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 26px;
+    animation: slideUp 0.6s ease;
+}
+
+.help-card h3 {
+    color: #0d2140;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.help-card p {
+    font-size: 14px;
+    color: #5b6b82;
+    margin-bottom: 4px;
+}
+
+/* About page: key features and details bar */
+.features-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 42px;
+}
+
+.feature-chip {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 3px 8px rgba(13, 33, 64, 0.08);
+    width: 252px;
+}
+
+.feature-chip span {
+    font-size: 24px;
+}
+
+.avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #2456e6;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.details-bar {
+    background: linear-gradient(115deg, #14265e, #2456e6 55%, #7c3aed);
+    color: white;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding: 18px 24px;
+    margin-top: 26px;
+    font-size: 14px;
+}
+
+/* Box titles with a yellow line under them */
+.box-title {
+    color: #0d2140;
+    font-size: 22px;
+    margin: 0;
+}
+
+.title-line {
+    display: block;
+    width: 44px;
+    height: 4px;
+    background-color: #ffc61a;
+    border-radius: 4px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+}
+
+/* Contact page side boxes */
+.info-purple {
+    background-color: #ede9fe;
+    margin-top: 0;
+}
+
+.info-mint {
+    background-color: #dcfce7;
+}
+
+/* My Schedule page head */
+.schedule-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.schedule-head h2 {
+    color: #0d2140;
+    font-size: 22px;
+    margin: 0;
+}
+
+.total-pill {
+    background-color: #ede9fe;
+    color: #0d2140;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px 16px;
+    border-radius: 20px;
+}
+
+/* Footer with columns */
+.footer-cols {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-col {
+    width: 240px;
+}
+
+.footer-col h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.footer-col .logo {
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+.footer-bottom {
+    max-width: 1120px;
+    margin: 0 auto;
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    text-align: left;
+}
